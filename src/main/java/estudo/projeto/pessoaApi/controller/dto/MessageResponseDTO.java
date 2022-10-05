@@ -1,4 +1,4 @@
-package estudo.projeto.pessoaApi.dto;
+package estudo.projeto.pessoaApi.controller.dto;
 
 import lombok.Builder;
 import lombok.Data;

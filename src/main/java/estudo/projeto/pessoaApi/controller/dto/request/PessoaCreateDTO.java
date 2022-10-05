@@ -1,4 +1,4 @@
-package estudo.projeto.pessoaApi.dto.request;
+package estudo.projeto.pessoaApi.controller.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import estudo.projeto.pessoaApi.model.Telefone;

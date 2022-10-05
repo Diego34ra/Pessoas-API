@@ -1,13 +1,12 @@
 package estudo.projeto.pessoaApi.controller;
 
-import estudo.projeto.pessoaApi.dto.MessageResponseDTO;
-import estudo.projeto.pessoaApi.dto.mapper.PessoaMapper;
-import estudo.projeto.pessoaApi.dto.request.PessoaCreateDTO;
-import estudo.projeto.pessoaApi.dto.request.PessoaDTO;
+import estudo.projeto.pessoaApi.controller.dto.MessageResponseDTO;
+import estudo.projeto.pessoaApi.controller.dto.mapper.PessoaMapper;
+import estudo.projeto.pessoaApi.controller.dto.request.PessoaCreateDTO;
+import estudo.projeto.pessoaApi.controller.dto.request.PessoaDTO;
+import estudo.projeto.pessoaApi.exception.PessoaNotFoundException;
 import estudo.projeto.pessoaApi.model.Pessoa;
-import estudo.projeto.pessoaApi.repository.PessoaRepository;
 import estudo.projeto.pessoaApi.service.PessoaService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,5 +35,24 @@ public class PessoaController {
     public ResponseEntity<List<PessoaDTO>> findAll() {
         List<PessoaDTO> result = pessoaService.findAll();
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PessoaDTO> findById(@PathVariable Long id) throws PessoaNotFoundException {
+        Pessoa pessoa = pessoaService.findById(id);
+        PessoaDTO pessoaDTO = pessoaMapper.toPessoaDTO(pessoa);
+        return ResponseEntity.ok(pessoaDTO);
+    }
+
+    @PutMapping("/{id}")
+    public MessageResponseDTO update(@PathVariable Long id, @RequestBody @Valid PessoaCreateDTO pessoaCreateDTO) throws PessoaNotFoundException {
+        Pessoa pessoaUpdate = pessoaMapper.toPessoaCreate(pessoaCreateDTO);
+        return pessoaService.update(id,pessoaUpdate);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) throws PessoaNotFoundException {
+        pessoaService.delete(id);
     }
 }

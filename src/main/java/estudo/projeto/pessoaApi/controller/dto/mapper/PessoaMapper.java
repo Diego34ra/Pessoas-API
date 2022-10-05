@@ -1,7 +1,7 @@
-package estudo.projeto.pessoaApi.dto.mapper;
+package estudo.projeto.pessoaApi.controller.dto.mapper;
 
-import estudo.projeto.pessoaApi.dto.request.PessoaCreateDTO;
-import estudo.projeto.pessoaApi.dto.request.PessoaDTO;
+import estudo.projeto.pessoaApi.controller.dto.request.PessoaCreateDTO;
+import estudo.projeto.pessoaApi.controller.dto.request.PessoaDTO;
 import estudo.projeto.pessoaApi.model.Pessoa;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

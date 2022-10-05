@@ -1,4 +1,4 @@
-package estudo.projeto.pessoaApi.dto.request;
+package estudo.projeto.pessoaApi.controller.dto.request;
 
 import estudo.projeto.pessoaApi.enums.TelefoneTipo;
 import lombok.AllArgsConstructor;
