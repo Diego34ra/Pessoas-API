@@ -7,6 +7,8 @@ import estudo.projeto.pessoaApi.controller.dto.request.PessoaDTO;
 import estudo.projeto.pessoaApi.exception.PessoaNotFoundException;
 import estudo.projeto.pessoaApi.model.Pessoa;
 import estudo.projeto.pessoaApi.service.PessoaService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/pessoas")
+@Api(tags = "Pessoa Controller")
 public class PessoaController {
 
     @Autowired
@@ -32,6 +35,7 @@ public class PessoaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(pessoa);
     }
     @GetMapping
+    @ApiOperation("Find all Pessoas")
     public ResponseEntity<List<PessoaDTO>> findAll() {
         List<PessoaDTO> result = pessoaService.findAll();
         return ResponseEntity.ok(result);
