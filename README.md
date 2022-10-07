@@ -1,4 +1,4 @@
-# Desenvolvendo um sistema de gerenciamenteo de pessoas
+# Desenvolvendo um sistema de gerenciamento de pessoas
 
 Foram desenvolvidos e abordados os seguintes tópicos:
 
